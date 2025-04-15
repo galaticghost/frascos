@@ -1,0 +1,10 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<h1>Edit Profile</h1>
+
+<p><button><a href="{{url_for('main.edit_username')}}">Edit username</a></button></p>
+<p><button><a href="{{url_for('main.edit_about_me')}}">Edit about me</a></button></p>
+<p><button><a href="{{url_for('main.edit_profile_picture')}}">Edit Profile Picture</a></button></p>
+
+{% endblock %}

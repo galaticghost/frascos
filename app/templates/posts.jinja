@@ -1,0 +1,11 @@
+{% for post in posts %}
+<article class="post">
+    <div class="user-information">
+        <img alt="profile_picture" src="{{ url_for('static',filename='profile_pictures/' + post['profile_picture']) }}" height="64px" width="64px" style="border-radius: 50%;">
+        <a href="{{ url_for('main.user', username=post['username'])}}">{{ post["username"] }}</a>
+    </div>
+    <div class="post-body">
+        <p>{{ post["body"] }}</p>
+    </div>
+</article>
+{% endfor %}

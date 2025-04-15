@@ -1,0 +1,33 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<h1>Hello {{current_user.username}}</h1>
+
+<section>
+<form action="" method="post" class="post-posting">
+    <img src="{{ url_for('static',filename='profile_pictures/' + current_user['profile_picture']) }}">
+    {{ form.csrf_token }}
+    {{ form.post(placeholder="You can write here") }}
+    {% for error in form.post.errors %}
+    <span style="color:red;">
+        <p>--{{ error }}--</p>
+    </span>
+    {% endfor %}
+
+    <button>{{ form.submit() }}</button>
+</form>
+</section>
+
+{% include "posts.jinja" %}
+
+<div>
+{% if page != 1 %}
+    <a href="{{ url_for('main.index', page=page-1)}}">Posts anteriores</a>
+{% endif %}
+
+{% if count != 0 %}
+<a href="{{ url_for('main.index', page=page+1)}}">Próximos posts</a>
+{% endif %}
+</div>
+
+{% endblock %}

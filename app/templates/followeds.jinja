@@ -1,0 +1,20 @@
+{% extends "base.jinja"%}
+
+{% block content %}
+
+{% for followed in followeds %}
+    <div>
+        <img src="{{ url_for('static',filename='profile_pictures/' + followed['profile_picture']) }}" alt="profile_picture" width="64px" height="64px"
+        style="border-radius: 50%;">
+        <h4><a href="{{url_for('main.user',username=followed['username'])}}">{{ followed["username"]}}</a></h4>
+    </div>
+{% endfor %}
+
+{% if page != 1 %}
+    <a href="{{url_for('main.followeds',page=page-1, username=username)}}">Seguidores anteriores</a>
+{% endif %}
+
+{% if count != 0 %}
+    <a href="{{url_for('main.followeds',page=page+1, username=username)}}">Próximos seguidores</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<section class="user-profile">
+    <img src="{{ url_for('static',filename='profile_pictures/' + user['profile_picture']) }}" width="128px" height="128px" style="border-radius: 50%;"> {# TOCHANGE STYLES #}
+    <h2>{{user["username"]}}</h2>
+
+    {% if user["about_me"] == None %}
+    <p></p>
+    {% else %}
+    <p>{{user["about_me"]}}</p>
+    {% endif %}
+
+    <p>Last seen: {{user["last_seen"]}}</p>
+
+    {% if user.followed_count() != 0 %}
+        <a href="{{url_for('main.followeds',username=user.username)}}">
+            <p>Seguindo {{user.followed_count()}}</p>
+        </a>
+    {% else %}
+        <p>Seguindo {{user.followed_count()}}</p>
+    {% endif %}
+    {% if user.followers_count() != 0%}
+        <a href="{{url_for('main.followers',username=user.username)}}">
+            <p>{{user.followers_count()}} seguidores</p>
+        </a>
+    {% else %}
+        <p>{{user.followers_count()}} seguidores</p>
+    {% endif %}
+
+    {% if user == current_user %}
+        <p><button><a href="{{url_for('main.edit_profile')}}">Edit your profile</a></button></p>
+    {% elif current_user.is_following(user) %}
+        <p>
+        <form action="{{ url_for('main.unfollow', username=user.username) }}" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.submit(value='Unfollow') }}
+        </form>
+        </p>
+    {% else %}
+    <p>
+    <form action="{{ url_for('main.follow', username=user.username) }}" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.submit(value='Follow') }}
+    </form>
+    </p>
+    {% endif %}
+</section>
+
+{% include "posts.jinja" %}
+
+<div>
+    {% if page != 1 %}
+    <a href="{{ url_for('main.user',username=user.username, page=page-1)}}">Posts anteriores</a>
+    {% endif %}
+    {% if count != 0 %}
+    <a href="{{ url_for('main.user',username=user.username, page=page+1)}}">Próximos posts</a>
+    {% endif %}
+</div>
+
+
+
+{% endblock %}

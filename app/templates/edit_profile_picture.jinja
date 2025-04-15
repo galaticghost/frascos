@@ -1,0 +1,13 @@
+{% extends "base.jinja" %}
+
+{% block content %}
+<form action="" method="post" enctype=multipart/form-data>
+    {{form.hidden_tag()}}
+
+    <p>{{form.profile_picture.label}}</p>
+    <p>{{form.profile_picture()}}</p>
+
+    <p>{{form.submit()}}</p>
+</form>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  background-color: #3626a7;
+}
+
+button {
+  all: unset;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas:
+    "section"
+    "section";
+}
+
+.navbar-desktop {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+.post-posting {
+  background-color: #fbfbff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.post-posting img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.post-posting textarea {
+  resize: none;
+  background-color: #fbfbff;
+  border: none;
+  padding: 5% 2%;
+  overflow: hidden;
+}
+
+.post-posting textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.post-posting button {
+  background-color: #ff331f;
+  width: 50%;
+  margin: auto;
+}
+
+.user-profile {
+  background-color: #fbfbff;
+  padding: 20px;
+}
+
+.user-profile > p {
+  font-family: "Dm Sans", sans-serif;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(34, 34, 34, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; 
+}
+
+.modal-content {
+  margin: 5% auto;
+  width: 70%;
+  height: 70%;
+  background-color: #fbfbff;
+  border: 2px solid black;
+  padding: 1em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.post {
+  background-color: #fbfbff;
+  margin: 5% 0;
+  width: 100%;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+.user-information {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.post-body {
+  padding: 0 5% 10px;
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+      "aside section ."
+      "aside section .";
+  }
+
+  .navbar-desktop {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-desktop ul {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    justify-content: space-around;
+    margin: 0 auto;
+    top: 10%;
+    background-color: #fbfbff;
+    width: 80%;
+    height: 80vh;
+    padding: 0;
+  }
+
+  .navbar-desktop ul li {
+    width: 80%;  
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar {
+    display: none;
+  }
+}
