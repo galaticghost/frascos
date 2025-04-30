@@ -80,7 +80,7 @@ li {
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0; 
+  left: 0;
 }
 
 .modal-content {
@@ -135,10 +135,11 @@ li {
     width: 80%;
     height: 80vh;
     padding: 0;
+    box-sizing: border-box;
   }
 
   .navbar-desktop ul li {
-    width: 80%;  
+    width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
