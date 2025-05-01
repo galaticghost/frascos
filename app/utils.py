@@ -22,5 +22,6 @@ def generate_filename(name):
 
 def delete_file(filename):
     if os.path.exists(os.path.join(IMAGES_PATH,filename)) \
-        and filename != "7b2666b68102643c39a0c4c2d095515e.png":
+        and (filename != "7b2666b68102643c39a0c4c2d095515e.png" or \
+            filename != "d3badb0b2c80449763ef7610bd10915c.jpeg"):
         os.remove(os.path.join(IMAGES_PATH,filename))
