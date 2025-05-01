@@ -28,15 +28,7 @@
             {% endif %}
         </nav>
 
-        {% with messages = get_flashed_messages() %} {#Modificar isso daqui para entrar dentro de uma div#}
-        {% if messages %}   {#Senão acaba destruindo o grid#}
-        <ul>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
+
         <aside class="navbar-desktop">
             <ul>
                 <li><button><a href="{{ url_for('main.index') }}">Home</a></button></li>

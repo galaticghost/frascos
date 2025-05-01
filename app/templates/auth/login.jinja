@@ -1,6 +1,15 @@
 {% extends "base.jinja" %}
 
 {% block content %}
+{% with messages = get_flashed_messages() %} {#Modificar isso daqui para entrar dentro de uma div#}
+{% if messages %}   {#Senão acaba destruindo o grid#}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
 <h1>Sign in</h1>
 <form action="" method="post">
     {{ form.hidden_tag() }}

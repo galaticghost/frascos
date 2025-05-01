@@ -1,11 +1,13 @@
 # Frascos
 
-    Frascos é uma rede social semelhante ao X/Twitter
+Frascos é uma rede social semelhante ao X/Twitter
 
 # Descrição
 
-    Frascos é um projeto que eu fiz para estudar melhor o Flask e Web application
-    em geral. Essencialmente ele é uma rede social inspirada no X/Twitter
+Frascos é um projeto que eu fiz para estudar melhor o Flask e Web application
+em geral. Essencialmente ele é uma rede social inspirada no X/Twitter que permite
+postar posts de até 150 caractéres. Conta com sistema de cadastro,login, seguidores,
+postagem, página de perfil, edição do usuário e paginação.
 
 # Tecnologias Usadas
 
