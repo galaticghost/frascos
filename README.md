@@ -19,13 +19,12 @@
 - Ative o ambiente virtual
 
 ```bash
-# Criando...
-python -m venv venv
-
 # Linux
+python3 -m venv venv
 . venv/bin/activate
 
 # Windows
+python -m venv venv
 . venv\Scripts\Activate
 ```
 
